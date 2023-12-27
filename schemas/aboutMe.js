@@ -11,8 +11,13 @@ const aboutMe = {
     },
     {
       name: "aboutme",
-      type: "text",
+      type: "array",
       title: "About Me",
+      of: [
+        {
+          type: "block",
+        },
+      ],
       validation: (Rule) => Rule.required(),
     },
     {

@@ -2,10 +2,11 @@ import Image from "next/image";
 import client from "@/lib/sanityClient";
 import imageUrlBuilder from "@sanity/image-url";
 import SocialLinks from "@/components/SocialLinks";
+import { PortableText } from "@portabletext/react";
 
 export default async function HakkimdaPage() {
   const data = await client.fetch(`*[_type == "aboutme"][0]`, {
-    next: { revalidate: 1 },
+    next: { cache: "no-cache" },
   });
   const builder = imageUrlBuilder(client);
 
@@ -28,7 +29,7 @@ export default async function HakkimdaPage() {
         </div>
       </div>
       <div
-        className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-12 xl:ml-2"
+        className="absolute left-1/2 lg:right-0 -top-80 lg:top-60 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-12 xl:ml-2"
         aria-hidden="true"
       >
         <div
@@ -40,14 +41,14 @@ export default async function HakkimdaPage() {
         />
       </div>
       <div className="flex flex-col items-center">
-        <div className="mx-auto pb-32 pt-36 flex justify-center items-center gap-6 flex-wrap">
+        <div className="mx-auto pb-32 pt-36 flex flex-col-reverse lg:flex-row justify-center items-center gap-6">
           <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               {data.title}
             </h1>
-            <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-              {data.aboutme}
-            </p>
+            <div className="relative mt-6 prose lg:prose-lg">
+              <PortableText value={data.aboutme} />
+            </div>
           </div>
           <Image
             className="w-60 xl:w-96 rounded-xl bg-gray-900/5 object-cover shadow-lg"
