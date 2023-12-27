@@ -11,7 +11,7 @@ export default function PortfolioCard({ portfolio, image }) {
           <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
             <div className="relative aspect-[2/3] h-96 md:-mx-8 xl:h-full xl:mx-0 ">
               <Image
-                className="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
+                className="absolute inset-0 h-full w-full rounded-2xl bg-transparent object-cover"
                 src={image}
                 alt=""
                 width={384}
