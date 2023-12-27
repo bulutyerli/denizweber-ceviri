@@ -1,15 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
 import CustomButton from "@/components/Button";
 import YorumlarPage from "./yorumlar/page";
 import BanaUlasinPage from "./bana-ulasin/page";
 import HakkimdaPage from "./hakkimda/page";
 import PortfolyoPage from "./portfolyo/page";
+import HakkimdaLink from "@/components/HakkimdaLink";
 
 export default function Homepage() {
   return (
     <main>
-      <div className="relative isolate overflow-hidden pt-14">
+      <div className="relative isolate overflow-hidden pt-14 mb-48">
         <Image
           src="/homebg.avif"
           alt=""
@@ -43,13 +43,7 @@ export default function Homepage() {
                 link={"bana-ulasin"}
                 type={"button"}
               />
-              <Link
-                href="#"
-                className="text-sm font-semibold leading-6 text-white"
-                scroll={false}
-              >
-                Hakkımda <span aria-hidden="true">→</span>
-              </Link>
+              <HakkimdaLink />
             </div>
           </div>
         </div>

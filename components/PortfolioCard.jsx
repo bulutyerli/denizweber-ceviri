@@ -14,8 +14,8 @@ export default function PortfolioCard({ portfolio, image }) {
                 className="absolute inset-0 h-full w-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
                 src={image}
                 alt=""
-                width={500}
-                height={500}
+                width={384}
+                height={576}
               />
             </div>
           </div>

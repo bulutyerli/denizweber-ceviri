@@ -1,4 +1,3 @@
-import Image from "next/image";
 import client from "@/lib/sanityClient";
 import imageUrlBuilder from "@sanity/image-url";
 import PortfolioCard from "@/components/PortfolioCard";
@@ -7,7 +6,8 @@ export async function getPortfolio() {
   try {
     const portfolio = await client.fetch(`*[_type == "portfolyo"]`, {
       next: {
-        revalidate: 3,
+        cache: "no-cache",
+        revalidate: 0,
       },
     });
     return portfolio;
@@ -39,7 +39,7 @@ export default async function PortfolyoPage() {
         </div>
       </div>
       {portfolio.map((item) => {
-        const image = urlFor(item.image).width(300).height(450).url();
+        const image = urlFor(item.image).width(384).height(576).url();
         return <PortfolioCard key={item.book} portfolio={item} image={image} />;
       })}
     </div>
