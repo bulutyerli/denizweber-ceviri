@@ -13,6 +13,7 @@ export default async function HakkimdaPage() {
   function urlFor(source) {
     return builder.image(source);
   }
+  console.log(data.aboutme);
 
   const image = urlFor(data.image).width(600).height(700).url();
 
@@ -29,7 +30,7 @@ export default async function HakkimdaPage() {
         </div>
       </div>
       <div
-        className="absolute left-1/2 lg:right-0 -top-80 lg:top-60 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-12 xl:ml-2"
+        className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-12 xl:ml-2"
         aria-hidden="true"
       >
         <div
