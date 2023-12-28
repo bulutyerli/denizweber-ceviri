@@ -1,15 +1,46 @@
 "use client";
 import { useForm } from "react-hook-form";
 import CustomButton from "@/components/Button";
+import { useState } from "react";
+import Loading from "@/components/Loading";
 
 export default function BanaUlasinPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
+  const onSubmit = (formData, event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    fetch(`/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact-form", ...formData }),
+    })
+      .then((response) => {
+        reset();
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 my-10 flex-grow">
@@ -37,8 +68,12 @@ export default function BanaUlasinPage() {
       <form
         noValidate
         onSubmit={handleSubmit(onSubmit)}
+        data-netlify-recaptcha="true"
+        data-netlify="true"
         className="mx-auto mt-16 max-w-xl sm:mt-20"
       >
+        <input type="hidden" name="form-name" value="contact-form" />
+
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
@@ -150,8 +185,9 @@ export default function BanaUlasinPage() {
             </div>
           </div>
         </div>
+        <div data-netlify-recaptcha="true"></div>
         <div className="mt-10">
-          <CustomButton text={"Gönder"} type={"submit"} />
+          <CustomButton text={"Gönder"} type={"submit"} loading={isLoading} />
         </div>
       </form>
     </div>
