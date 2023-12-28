@@ -8,7 +8,7 @@ export async function getReviews() {
       `*[_type == "review"] | order(_createdAt asc)`,
       {
         next: {
-          revalidate: 5,
+          revalidate: 6,
         },
       }
     );
@@ -29,7 +29,7 @@ export default async function YorumlarPage() {
 
   return (
     <div>
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative max-w-4xl mx-auto mt-20">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-gray-300" />
         </div>

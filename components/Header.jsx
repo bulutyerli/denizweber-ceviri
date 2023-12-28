@@ -4,48 +4,33 @@ import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { Link, animateScroll as scroll } from "react-scroll";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
-  { name: "Hakkımda", to: "hakkimda" },
-  { name: "Portfolyo", to: "portfolyo" },
-  { name: "Yorumlar", to: "yorumlar" },
-  { name: "Bana Ulaşın", to: "bana-ulasin" },
+  { name: "Hakkımda", href: "hakkimda" },
+  { name: "Portfolyo", href: "portfolyo" },
+  { name: "Yorumlar", href: "yorumlar" },
+  { name: "Bana Ulaşın", href: "bana-ulasin" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
-
-  const closeMenu = () => {
-    setMobileMenuOpen(false);
-  };
+  const pathName = usePathname();
+  const [isHomePage, setIsHomePage] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const shouldSticky = scrollPosition > 500;
-
-      setIsSticky(shouldSticky);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isSticky]);
-
-  const scrollToTop = () => {
-    scroll.scrollToTop();
-  };
+    if (pathName === "/") {
+      setIsHomePage(true);
+    } else {
+      setIsHomePage(false);
+    }
+  }, [pathName]);
 
   return (
     <header
       className={`inset-x-0 top-0 z-50 ${
-        isSticky
-          ? "fixed bg-[#191928] transition-all duration-300 delay-100"
-          : "absolute"
+        !isHomePage ? "block bg-[#191928]" : "absolute"
       }`}
     >
       <nav
@@ -53,14 +38,15 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Image
-            onClick={scrollToTop}
-            className="h-12 w-auto -m-1.5 p-1.5 cursor-pointer"
-            src="/logo.png"
-            alt="deniz weber çeviri logo"
-            width={400}
-            height={400}
-          />
+          <Link href="/">
+            <Image
+              className="h-12 w-auto -m-1.5 p-1.5 cursor-pointer"
+              src="/logo.png"
+              alt="deniz weber çeviri logo"
+              width={400}
+              height={400}
+            />
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -76,10 +62,7 @@ export default function Header() {
           {navigation.map((item) => (
             <Link
               key={item.name}
-              to={item.to}
-              smooth={true}
-              duration={500}
-              offset={-100}
+              href={item.href}
               className="text-sm font-semibold leading-6 text-white cursor-pointer"
             >
               {item.name}
@@ -96,14 +79,15 @@ export default function Header() {
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
           <div className="flex items-center justify-between">
-            <Image
-              onClick={scrollToTop}
-              className="h-8 w-auto -m-1.5 p-1.5"
-              src="/logo.png"
-              alt=""
-              width={300}
-              height={300}
-            />
+            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+              <Image
+                className="h-8 w-auto -m-1.5 p-1.5"
+                src="/logo.png"
+                alt="deniz weber çeviri logo"
+                width={300}
+                height={300}
+              />
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-400"
@@ -119,10 +103,8 @@ export default function Header() {
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.to}
-                    onClick={closeMenu}
-                    duration={500}
-                    offset={-50}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                   >
                     {item.name}

@@ -12,9 +12,9 @@ export default function BanaUlasinPage() {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 my-10">
+    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 my-10 flex-grow">
       <div
-        className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+        className="absolute inset-x-0 top-[10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[5rem]"
         aria-hidden="true"
       >
         <div
@@ -30,7 +30,8 @@ export default function BanaUlasinPage() {
           Bana Ulaşın
         </h2>
         <p className="mt-2 text-lg leading-8 text-gray-600">
-          İş birliği yapmak ya da merak ettikleriniz için yazabilirsiniz.
+          Kitap çevirisi, edebi, akademik ve bilimsel çeviri veya çeviri kontrol
+          ile ilgili destek arıyorsanız, bana ulaşın.
         </p>
       </div>
       <form
