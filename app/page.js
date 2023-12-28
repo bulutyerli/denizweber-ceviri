@@ -9,7 +9,7 @@ import HakkimdaLink from "@/components/HakkimdaLink";
 export default function Homepage() {
   return (
     <main>
-      <div className="relative isolate overflow-hidden pt-14 mb-48">
+      <div className="relative isolate overflow-hidden pt-14">
         <Image
           src="/homebg.avif"
           alt=""
@@ -60,11 +60,11 @@ export default function Homepage() {
           />
         </div>
       </div>
-      <div id="portfolyo">
-        <PortfolyoPage />
-      </div>
       <div id="hakkimda">
         <HakkimdaPage />
+      </div>
+      <div id="portfolyo">
+        <PortfolyoPage />
       </div>
       <div id="yorumlar">
         <YorumlarPage />

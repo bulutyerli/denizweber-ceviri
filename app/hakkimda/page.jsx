@@ -13,22 +13,11 @@ export default async function HakkimdaPage() {
   function urlFor(source) {
     return builder.image(source);
   }
-  console.log(data.aboutme);
 
   const image = urlFor(data.image).width(600).height(700).url();
 
   return (
     <div className="relative isolate px-5 py-20 min-h-screen">
-      <div className="relative max-w-4xl mx-auto">
-        <div className="absolute inset-0 flex items-center" aria-hidden="true">
-          <div className="w-full border-t border-gray-300" />
-        </div>
-        <div className="relative flex justify-center">
-          <span className="bg-white px-3 text-4xl font-semibold leading-6 text-gray-900">
-            Hakkımda
-          </span>
-        </div>
-      </div>
       <div
         className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-12 xl:ml-2"
         aria-hidden="true"
@@ -42,7 +31,7 @@ export default async function HakkimdaPage() {
         />
       </div>
       <div className="flex flex-col items-center">
-        <div className="mx-auto pb-32 pt-36 flex flex-col-reverse lg:flex-row justify-center items-center gap-6">
+        <div className="mx-auto pb-32 flex flex-col-reverse lg:flex-row justify-center items-center gap-6">
           <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               {data.title}

@@ -7,8 +7,8 @@ import Image from "next/image";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const navigation = [
-  { name: "Portfolyo", to: "portfolyo" },
   { name: "Hakkımda", to: "hakkimda" },
+  { name: "Portfolyo", to: "portfolyo" },
   { name: "Yorumlar", to: "yorumlar" },
   { name: "Bana Ulaşın", to: "bana-ulasin" },
 ];
@@ -121,6 +121,8 @@ export default function Header() {
                     key={item.name}
                     to={item.to}
                     onClick={closeMenu}
+                    duration={500}
+                    offset={-50}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                   >
                     {item.name}
