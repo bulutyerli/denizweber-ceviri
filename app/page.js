@@ -98,7 +98,7 @@ export default async function Homepage() {
         <div className="flex flex-wrap items-center justify-center">
           {services.map((service, i) => {
             const image = urlFor(service.image).width(300).height(300).url();
-            const right = i % 2 !== 0 && true;
+            const right = i % 2 !== 0 ? true : false;
 
             return (
               <Services
