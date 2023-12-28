@@ -7,7 +7,7 @@ export async function getPortfolio() {
     const portfolio = await client.fetch(`*[_type == "portfolyo"]`, {
       next: {
         cache: "no-cache",
-        revalidate: 5,
+        revalidate: 7,
       },
     });
     return portfolio;
