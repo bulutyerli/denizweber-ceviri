@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Services({ title, service, image, right }) {
+export default function Services({ title, service, image, index }) {
   return (
     <div className="max-w-3xl p-3 xl:p-20 mb-10 relative">
       <div
@@ -17,9 +17,9 @@ export default function Services({ title, service, image, right }) {
       </div>
       <div className="mr-4 ">
         <Image
-          className={`"h-full w-40 float-${
-            right ? "right" : "left"
-          } mx-5 my-2 xl:w-60 border border-gray-300 bg-white text-gray-300"`}
+          className={`h-full w-40 float-${
+            index === 1 ? "right" : "left"
+          } mx-5 my-2 xl:w-60 border border-gray-300 bg-white text-gray-300`}
           src={image}
           alt="reading illustration"
           width={300}
