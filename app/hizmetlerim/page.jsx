@@ -31,7 +31,7 @@ export default async function HizmetlerimPage() {
         </div>
       </div>
       <div className="flex flex-wrap items-center justify-center">
-        {services.map((service, i) => {
+        {services.map((service) => {
           const image = urlFor(service.image).width(300).height(300).url();
 
           return (

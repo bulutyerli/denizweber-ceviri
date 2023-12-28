@@ -17,9 +17,7 @@ export default function Services({ title, service, image, index }) {
       </div>
       <div className="mr-4 ">
         <Image
-          className={`h-full w-40 float-${
-            index === 1 ? "right" : "left"
-          } mx-5 my-2 xl:w-60 border border-gray-300 bg-white text-gray-300`}
+          className={`h-full w-40 float-left mx-5 my-2 xl:w-60 border border-gray-300 bg-white text-gray-300`}
           src={image}
           alt="reading illustration"
           width={300}
