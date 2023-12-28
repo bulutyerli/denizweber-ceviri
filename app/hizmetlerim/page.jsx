@@ -3,11 +3,14 @@ import client from "@/lib/sanityClient";
 import imageUrlBuilder from "@sanity/image-url";
 
 export default async function HizmetlerimPage() {
-  const services = await client.fetch(`*[_type == "service"]`, {
-    next: {
-      revalidate: 2,
-    },
-  });
+  const services = await client.fetch(
+    `*[_type == "service"] | order(_createdAt desc)`,
+    {
+      next: {
+        revalidate: 1,
+      },
+    }
+  );
 
   const builder = imageUrlBuilder(client);
 

@@ -33,12 +33,12 @@ export default function Homepage() {
             <p className="mt-6 text-lg leading-8 text-gray-200 px-5 xl:px-0">
               Merhaba! Edebiyatin büyülü dünyasından başlayarak, akademik ve
               bilimsel metinlere kadar geniş bir yelpazede çeviri hizmetleri
-              sunuyorum. Yazarların orijinal ifadesini koruyarak, dilin
-              güzelliklerini ve anlamını zenginleştirmeyi hedefliyorum. Her bir
-              çeviriyi dikkatlice kontrol ediyor, edebi dili, akademik titizliği
-              ve bilimsel doğruluğu garanti altına alıyorum. Sizinle birlikte
-              dilin sınırlarını aşmayı ve bilgiyi küresel bir ölçekte paylaşmayı
-              dört gözle bekliyorum.
+              sunuyorum. Orijinal ifadeyi koruyarak, dilin güzelliklerini ve
+              anlamını zenginleştirmeyi hedefliyorum. Her bir çeviriyi
+              dikkatlice kontrol ediyor, edebi dili, akademik titizliği ve
+              bilimsel doğruluğu garanti altına alıyorum. Sizinle birlikte dilin
+              sınırlarını aşmayı ve bilgiyi küresel bir ölçekte paylaşmayı dört
+              gözle bekliyorum.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link href="/bana-ulasin">
