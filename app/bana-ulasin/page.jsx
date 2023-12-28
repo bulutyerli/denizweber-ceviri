@@ -2,7 +2,6 @@
 import { useForm } from "react-hook-form";
 import CustomButton from "@/components/Button";
 import { useState } from "react";
-import Loading from "@/components/Loading";
 
 export default function BanaUlasinPage() {
   const {
@@ -14,32 +13,8 @@ export default function BanaUlasinPage() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
-  };
-
-  const onSubmit = (formData, event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    fetch(`/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact-form", ...formData }),
-    })
-      .then((response) => {
-        reset();
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
@@ -68,12 +43,8 @@ export default function BanaUlasinPage() {
       <form
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        data-netlify-recaptcha="true"
-        data-netlify="true"
         className="mx-auto mt-16 max-w-xl sm:mt-20"
       >
-        <input type="hidden" name="form-name" value="contact-form" />
-
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
