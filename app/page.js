@@ -105,7 +105,6 @@ export default async function Homepage() {
                 title={service.title}
                 service={service.service}
                 image={image}
-                index={i}
               />
             );
           })}
