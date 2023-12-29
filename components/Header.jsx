@@ -43,7 +43,7 @@ export default function Header() {
             <Image
               className="h-12 w-auto -m-1.5 p-1.5 cursor-pointer"
               src="/logo.png"
-              alt="deniz weber çeviri logo"
+              alt="deniz weber çeviri website logo"
               width={400}
               height={400}
             />

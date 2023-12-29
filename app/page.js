@@ -8,7 +8,7 @@ export default function Homepage() {
       <div className="relative isolate overflow-hidden pt-14 min-h-screen">
         <Image
           src="/homebg.png"
-          alt=""
+          alt="denizweber.com anasayfa kütüphane fotoğrafı"
           className="absolute inset-0 -z-10 h-full w-full object-cover"
           width={1400}
           height={1200}

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import AnimationOnScroll from "./AnimationOnScroll";
 
-export default function Services({ title, service, image, index }) {
+export default function Services({ title, service, image }) {
   return (
     <AnimationOnScroll
       classNameInView={"animate-in fade-in delay-150 duration-300"}
@@ -26,7 +26,7 @@ export default function Services({ title, service, image, index }) {
           <Image
             className={`h-full w-40 float-left mx-5 my-2 xl:w-60 border border-gray-300 bg-white text-gray-300`}
             src={image}
-            alt="reading illustration"
+            alt={`DenizWeber.com ${title}`}
             width={300}
             height={300}
           ></Image>

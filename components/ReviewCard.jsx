@@ -36,7 +36,7 @@ export default function ReviewCard({ reviews, image }) {
               <Image
                 className="rounded-xl bg-indigo-50 lg:rounded-3xl"
                 src={image}
-                alt={`${name} image`}
+                alt={`${name} fotoğrafı`}
                 width={600}
                 height={600}
               />

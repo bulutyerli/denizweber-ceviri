@@ -19,7 +19,7 @@ export default function PortfolioCard({ portfolio, image }) {
                 <Image
                   className="absolute inset-0 h-full w-full rounded-2xl bg-transparent object-cover"
                   src={image}
-                  alt=""
+                  alt={`${writer} ${book} kapak resmi`}
                   width={256}
                   height={384}
                 />
