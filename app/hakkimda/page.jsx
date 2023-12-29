@@ -5,9 +5,7 @@ import SocialLinks from "@/components/SocialLinks";
 import { PortableText } from "@portabletext/react";
 
 export default async function HakkimdaPage() {
-  const data = await client.fetch(`*[_type == "aboutme"][0]`, {
-    next: { cache: "no-cache", revalidate: 2 },
-  });
+  const data = await client.fetch(`*[_type == "aboutme"][0]`);
   const builder = imageUrlBuilder(client);
 
   function urlFor(source) {

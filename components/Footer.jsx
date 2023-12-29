@@ -1,7 +1,6 @@
 "use client";
 
-import { BiLogoInstagram } from "react-icons/bi";
-import { BiLogoGmail } from "react-icons/bi";
+import { BiLogoInstagram, BiLogoGmail, BiLogoLinkedin } from "react-icons/bi";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -13,8 +12,13 @@ const navigation = [
     icon: <BiLogoInstagram size={32} />,
   },
   {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/weberdeniz/",
+    icon: <BiLogoLinkedin size={32} />,
+  },
+  {
     name: "Gmail",
-    href: "mailTo: denizweber@gmail.com",
+    href: "mailTo: bilgi@denizweber.com",
     icon: <BiLogoGmail size={32} />,
   },
 ];
@@ -61,7 +65,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
           <p className={`${isHomePage ? "text-white" : "text-gray-400"}`}>
-            &copy; {year} Deniz Weber Çeviri, Tüm hakları saklıdır.
+            &copy; {year} Deniz Weber, Tüm hakları saklıdır.
           </p>
         </div>
       </div>

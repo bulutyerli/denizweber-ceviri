@@ -1,7 +1,9 @@
 "use client";
 import { useForm } from "react-hook-form";
 import CustomButton from "@/components/Button";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function BanaUlasinPage() {
   const {
@@ -12,9 +14,50 @@ export default function BanaUlasinPage() {
   } = useForm();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [captchaStatus, setCaptchaStatus] = useState(false);
+
+  const captchaRef = useRef(null);
+  const onChangeCaptcha = () => {
+    setCaptchaStatus(true);
+  };
 
   const onSubmit = (data) => {
-    console.log(data);
+    if (captchaStatus) {
+      setSuccess(false);
+      setError(false);
+      setIsLoading(true);
+      const token = captchaRef.current.getValue();
+      const name = data.ad + " " + data.soyad;
+      const templateParams = {
+        from_name: name,
+        to_name: "Deniz Weber",
+        reply_to: data.eposta,
+        message: data.mesaj,
+        "g-recaptcha-response": token,
+      };
+
+      emailjs
+        .send(
+          process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE,
+          process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE,
+          templateParams,
+          process.env.NEXT_PUBLIC_EMAIL_JS_USER
+        )
+        .then(({ status }) => {
+          setSuccess(true);
+        })
+        .catch((error) => {
+          setError(true);
+        })
+        .finally(() => {
+          setIsLoading(false);
+          reset();
+        });
+    } else {
+      setCaptchaStatus(false);
+    }
   };
 
   return (
@@ -156,10 +199,34 @@ export default function BanaUlasinPage() {
             </div>
           </div>
         </div>
-        <div data-netlify-recaptcha="true"></div>
-        <div className="mt-10">
-          <CustomButton text={"Gönder"} type={"submit"} loading={isLoading} />
+        <div className="pt-5 flex justify-center">
+          <ReCAPTCHA
+            ref={captchaRef}
+            sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}
+            onChange={onChangeCaptcha}
+          />
         </div>
+
+        <div className="mt-10">
+          <CustomButton
+            text={"Gönder"}
+            type={"submit"}
+            loading={isLoading}
+            disabled={!captchaStatus}
+          />
+        </div>
+
+        {success ? (
+          <p className="pt-2 text-center text-green-800">
+            Mesajınız gönderildi, teşekkürler.
+          </p>
+        ) : error ? (
+          <p className="pt-2 text-center text-red-800">
+            Bir hata oldu, lütfen tekrar deneyin.
+          </p>
+        ) : (
+          ""
+        )}
       </form>
     </div>
   );

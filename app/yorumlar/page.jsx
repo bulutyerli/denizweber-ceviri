@@ -5,12 +5,7 @@ import imageUrlBuilder from "@sanity/image-url";
 export async function getReviews() {
   try {
     const reviews = await client.fetch(
-      `*[_type == "review"] | order(_createdAt asc)`,
-      {
-        next: {
-          revalidate: 6,
-        },
-      }
+      `*[_type == "review"] | order(_createdAt asc)`
     );
     return reviews;
   } catch (error) {

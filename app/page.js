@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Homepage() {
   return (
     <main>
-      <div className="relative isolate overflow-hidden pt-14 h-screen">
+      <div className="relative isolate overflow-hidden pt-14 min-h-screen">
         <Image
           src="/homebg.png"
           alt=""

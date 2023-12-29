@@ -4,12 +4,7 @@ import PortfolioCard from "@/components/PortfolioCard";
 
 export async function getPortfolio() {
   try {
-    const portfolio = await client.fetch(`*[_type == "portfolyo"]`, {
-      next: {
-        cache: "no-cache",
-        revalidate: 7,
-      },
-    });
+    const portfolio = await client.fetch(`*[_type == "portfolyo"]`);
     return portfolio;
   } catch (error) {
     console.log(error, "Portfolyo alınamadı.");
