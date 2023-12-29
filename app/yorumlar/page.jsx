@@ -2,6 +2,12 @@ import ReviewCard from "@/components/ReviewCard";
 import client from "@/lib/sanityClient";
 import imageUrlBuilder from "@sanity/image-url";
 
+export const metadata = {
+  title: "Deniz Weber Çeviri: Yazar Yorumları",
+  description:
+    "Deniz Weber'in kitap çevirisi, edebi çeviri ve çeviri kontrol hizmetleri için yazarlar tarafından yazılan övgü dolu yorumlar. İnceleme ve geri bildirimler.",
+};
+
 export async function getReviews() {
   try {
     const reviews = await client.fetch(

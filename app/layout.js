@@ -8,13 +8,15 @@ const cormorant = Cormorant({
 });
 
 export const metadata = {
-  title: "Deniz Weber Çeviri",
-  description: "Deniz Weber Çeviri Hizmetleri",
+  title:
+    "Deniz Weber - İngilizce - Türkçe Kitap Çevirisi, Edebi Çeviri ve Kontrol",
+  description:
+    "İngilizce - Türkçe kitap çevirisi, edebi çeviri ve kontrol alanında uzmanlaşmış profesyonel çeviri hizmeti sunar. Profesyonel çeviri için bana ulaşın.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <body className={cormorant.className}>
         <Header />
         {children}

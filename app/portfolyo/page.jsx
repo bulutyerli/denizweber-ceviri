@@ -2,6 +2,12 @@ import client from "@/lib/sanityClient";
 import imageUrlBuilder from "@sanity/image-url";
 import PortfolioCard from "@/components/PortfolioCard";
 
+export const metadata = {
+  title: "Deniz Weber İngilizce - Türkçe Kitap, Edebi Çeviri Portfolyo",
+  description:
+    "Seda Ulu - Işıktaki Karanlık, H. P. Lovecraft - Nyarlathotep ve F. Scott Fitzgerald - Muhteşem Gatsby gibi eserlerin çevirisinin de bulunduğu portfolyo",
+};
+
 export async function getPortfolio() {
   try {
     const portfolio = await client.fetch(`*[_type == "portfolyo"]`);

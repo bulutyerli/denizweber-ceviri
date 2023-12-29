@@ -2,6 +2,12 @@ import Services from "@/components/Services";
 import client from "@/lib/sanityClient";
 import imageUrlBuilder from "@sanity/image-url";
 
+export const metadata = {
+  title: "Deniz Weber Çeviri Hizmetleri",
+  description:
+    "İngilizce - Türkçe kitap çevirisi, edebi çeviri ve çeviri kontrol hizmetleri verilir. Yazarın orijinal ifadesi korunarak eser çevirisi gerçekleştirilir.",
+};
+
 export default async function HizmetlerimPage() {
   const services = await client.fetch(
     `*[_type == "service"] | order(_createdAt desc)`

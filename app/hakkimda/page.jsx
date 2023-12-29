@@ -4,6 +4,12 @@ import imageUrlBuilder from "@sanity/image-url";
 import SocialLinks from "@/components/SocialLinks";
 import { PortableText } from "@portabletext/react";
 
+export const metadata = {
+  title: "Deniz Weber Hakkında ve Biyografi",
+  description:
+    "İngilizce - Türkçe kitap çevirisi, edebi çeviri ve kontrol alanında uzmanlaşmış profesyonel çeviri hizmeti sunan Deniz Weber'in hakkında bilgi edinin.",
+};
+
 export default async function HakkimdaPage() {
   const data = await client.fetch(`*[_type == "aboutme"][0]`);
   const builder = imageUrlBuilder(client);
