@@ -6,6 +6,12 @@ import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
 import AnimationOnScroll from "@/components/AnimationOnScroll";
 
+export const metadata = {
+  title: "Deniz Weber Çeviri Hizmetleri İletişim Formu",
+  description:
+    "İngilizce - Türkçe kitap çevirisi, edebi çeviri ve kontrol alanında hizmet almak için bana iletişim formu, email ya da instagram ile ulaşabilirsiniz.",
+};
+
 export default function BanaUlasinPage() {
   const {
     register,
@@ -80,9 +86,9 @@ export default function BanaUlasinPage() {
           />
         </div>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Bana Ulaşın
-          </h2>
+          </h1>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Kitap çevirisi, edebi, akademik ve bilimsel çeviri veya çeviri
             kontrol ile ilgili destek arıyorsanız, bana ulaşın.

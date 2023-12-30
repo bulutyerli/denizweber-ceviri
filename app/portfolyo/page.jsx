@@ -34,9 +34,9 @@ export default async function PortfolyoPage() {
           <div className="w-full border-t border-gray-300" />
         </div>
         <div className="relative flex justify-center">
-          <span className="bg-white px-3 text-4xl font-semibold leading-6 text-gray-900">
+          <h1 className="bg-white px-3 text-4xl font-semibold leading-6 text-gray-900">
             Portfolyo
-          </span>
+          </h1>
         </div>
       </div>
       {portfolio.map((item) => {

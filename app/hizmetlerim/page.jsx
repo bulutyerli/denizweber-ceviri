@@ -26,9 +26,9 @@ export default async function HizmetlerimPage() {
           <div className="w-full border-t border-gray-300" />
         </div>
         <div className="relative flex justify-center">
-          <span className="bg-white px-3 text-4xl font-semibold leading-6 text-gray-900">
+          <h1 className="bg-white px-3 text-4xl font-semibold leading-6 text-gray-900">
             Hizmetlerim
-          </span>
+          </h1>
         </div>
       </div>
       <div className="flex flex-wrap items-center justify-center">
