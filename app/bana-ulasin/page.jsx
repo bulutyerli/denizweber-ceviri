@@ -1,3 +1,5 @@
+import Form from "@/components/Form";
+
 export const metadata = {
   title: "Deniz Weber Çeviri Hizmetleri İletişim Formu",
   description:
@@ -28,6 +30,7 @@ export default function BanaUlasinPage() {
           ile ilgili destek arıyorsanız, bana ulaşın.
         </p>
       </div>
+      <Form />
     </div>
   );
 }
