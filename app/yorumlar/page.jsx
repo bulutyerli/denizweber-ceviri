@@ -11,8 +11,11 @@ export const metadata = {
 export async function getReviews() {
   try {
     const reviews = await client.fetch(
-      `*[_type == "review"] | order(_createdAt asc)`
+      `*[_type == "review"] | order(_updatedAt desc)`
     );
+    if (!reviews) {
+      throw new Error(error);
+    }
     return reviews;
   } catch (error) {
     console.log(error, "Yorumlar alınamadı.");
