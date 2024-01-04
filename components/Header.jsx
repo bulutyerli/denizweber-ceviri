@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <header
       className={`inset-x-0 top-0 z-50 ${
-        !isHomePage ? "block bg-[#191928]" : "absolute"
+        !isHomePage ? "block bg-primary" : "absolute"
       }`}
     >
       <nav
@@ -42,7 +42,7 @@ export default function Header() {
           <Link href="/">
             <Image
               className="h-12 w-auto -m-1.5 p-1.5 cursor-pointer"
-              src="/logo.png"
+              src={isHomePage ? "/logo.png" : "/logoblack.png"}
               alt="deniz weber çeviri website logo"
               width={400}
               height={400}
@@ -56,7 +56,7 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon className="h-6 w-6 text-gray-800" aria-hidden="true" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -64,7 +64,9 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-white cursor-pointer"
+              className={`text-sm font-semibold leading-6 ${
+                isHomePage ? "text-white" : "text-gray-900"
+              } cursor-pointer`}
             >
               {item.name}
             </Link>
@@ -78,12 +80,12 @@ export default function Header() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-primary px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
           <div className="flex items-center justify-between">
             <Link href="/" onClick={() => setMobileMenuOpen(false)}>
               <Image
                 className="h-8 w-auto -m-1.5 p-1.5"
-                src="/logo.png"
+                src={isHomePage ? "/logo.png" : "/logoblack.png"}
                 alt="deniz weber çeviri logo"
                 width={300}
                 height={300}
@@ -95,7 +97,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="h-6 w-6 text-gray-800" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -106,7 +108,7 @@ export default function Header() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-secondary"
                   >
                     {item.name}
                   </Link>
