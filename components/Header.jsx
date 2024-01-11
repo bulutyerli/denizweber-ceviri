@@ -56,7 +56,12 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6 text-gray-800" aria-hidden="true" />
+            <Bars3Icon
+              className={`h-6 w-6 ${
+                isHomePage ? "text-gray-200" : "text-gray-800"
+              }`}
+              aria-hidden="true"
+            />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -84,8 +89,8 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" onClick={() => setMobileMenuOpen(false)}>
               <Image
-                className="h-8 w-auto -m-1.5 p-1.5"
-                src={isHomePage ? "/logo.png" : "/logoblack.png"}
+                className="h-10 w-auto -m-1.5 p-1.5"
+                src="/logoblack.png"
                 alt="deniz weber çeviri logo"
                 width={300}
                 height={300}
