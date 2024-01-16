@@ -97,7 +97,7 @@ export default function Form() {
               />
               {errors.ad?.type === "required" && (
                 <p className="text-red-600 text-xs py-1" role="alert">
-                  *Bu alan gereklidir
+                  *Bu alan gereklidir.
                 </p>
               )}
             </div>
