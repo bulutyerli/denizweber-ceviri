@@ -1,6 +1,6 @@
 import ReviewCard from "@/components/ReviewCard";
-import client from "@/lib/sanityClient";
-import imageUrlBuilder from "@sanity/image-url";
+import { sanityFetch, urlFor } from "@/lib/sanity.client";
+import { reviewsQuery } from "@/lib/sanity.query";
 
 export const metadata = {
   title: "Deniz Weber Çeviri: Yazar Yorumları",
@@ -8,20 +8,8 @@ export const metadata = {
     "Deniz Weber'in kitap çevirisi, edebi çeviri ve çeviri kontrol hizmetleri için yazarlar tarafından yazılan övgü dolu yorumlar. İnceleme ve geri bildirimler.",
 };
 
-export async function getReviews() {
-  const reviews = await client.fetch(
-    `*[_type == "review"] | order(_updatedAt desc)`
-  );
-  return reviews;
-}
-
 export default async function YorumlarPage() {
-  const reviews = await getReviews();
-  const builder = imageUrlBuilder(client);
-
-  function urlFor(source) {
-    return builder.image(source);
-  }
+  const reviews = await sanityFetch({ query: reviewsQuery, tags: "review" });
 
   return (
     <div>

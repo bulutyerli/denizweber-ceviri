@@ -1,6 +1,6 @@
 import Services from "@/components/Services";
-import client from "@/lib/sanityClient";
-import imageUrlBuilder from "@sanity/image-url";
+import { sanityFetch, urlFor } from "@/lib/sanity.client";
+import { serviceQuery } from "@/lib/sanity.query";
 
 export const metadata = {
   title: "Deniz Weber Çeviri Hizmetleri",
@@ -9,15 +9,7 @@ export const metadata = {
 };
 
 export default async function HizmetlerimPage() {
-  const services = await client.fetch(
-    `*[_type == "service"] | order(_createdAt desc)`
-  );
-
-  const builder = imageUrlBuilder(client);
-
-  function urlFor(source) {
-    return builder.image(source);
-  }
+  const services = await sanityFetch({ query: serviceQuery, tags: "service" });
 
   return (
     <div className="mt-20 flex-grow">

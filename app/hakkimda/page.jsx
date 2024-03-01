@@ -1,8 +1,8 @@
 import Image from "next/image";
-import client from "@/lib/sanityClient";
-import imageUrlBuilder from "@sanity/image-url";
+import { sanityFetch, urlFor } from "@/lib/sanity.client";
 import SocialLinks from "@/components/SocialLinks";
 import { PortableText } from "@portabletext/react";
+import { aboutMeQuery } from "@/lib/sanity.query";
 
 export const metadata = {
   title: "Deniz Weber Hakkında ve Biyografi",
@@ -11,12 +11,7 @@ export const metadata = {
 };
 
 export default async function HakkimdaPage() {
-  const data = await client.fetch(`*[_type == "aboutme"][0]`);
-  const builder = imageUrlBuilder(client);
-
-  function urlFor(source) {
-    return builder.image(source);
-  }
+  const data = await sanityFetch({ query: aboutMeQuery, tags: "aboutme" });
 
   const image = urlFor(data.image).width(600).height(700).url();
 

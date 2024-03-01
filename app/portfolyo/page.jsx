@@ -1,6 +1,6 @@
-import client from "@/lib/sanityClient";
-import imageUrlBuilder from "@sanity/image-url";
+import { sanityFetch, urlFor } from "@/lib/sanity.client";
 import PortfolioCard from "@/components/PortfolioCard";
+import { portfolioQuery } from "@/lib/sanity.query";
 
 export const metadata = {
   title: "Deniz Weber İngilizce - Türkçe Kitap, Edebi Çeviri Portfolyo",
@@ -8,24 +8,11 @@ export const metadata = {
     "Seda Ulu - Işıktaki Karanlık, Halil Cibran Kitapları ve F. Scott Fitzgerald - Muhteşem Gatsby gibi eserlerin çevirisinin de bulunduğu portfolyo",
 };
 
-export async function getPortfolio() {
-  try {
-    const portfolio = await client.fetch(`*[_type == "portfolyo"]`);
-    return portfolio;
-  } catch (error) {
-    console.log(error, "Portfolyo alınamadı.");
-    throw new Error(error);
-  }
-}
-
 export default async function PortfolyoPage() {
-  const portfolio = await getPortfolio();
-
-  const builder = imageUrlBuilder(client);
-
-  function urlFor(source) {
-    return builder.image(source);
-  }
+  const portfolio = await sanityFetch({
+    query: portfolioQuery,
+    tags: "portfolyo",
+  });
 
   return (
     <div className="mt-20">

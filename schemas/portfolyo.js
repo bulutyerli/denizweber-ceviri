@@ -1,7 +1,13 @@
+import {
+  orderRankField,
+  orderRankOrdering,
+} from "@sanity/orderable-document-list";
+
 const portfolyo = {
   name: "portfolyo",
   title: "Portfolyo",
   type: "document",
+  orderings: [orderRankOrdering],
   fields: [
     {
       name: "writer",
@@ -30,6 +36,7 @@ const portfolyo = {
         hotspot: true,
       },
     },
+    orderRankField({ type: "portfolyo" }),
   ],
   preview: {
     select: {
