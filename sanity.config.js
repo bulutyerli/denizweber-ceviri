@@ -9,21 +9,7 @@ export default defineConfig({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: "production",
   basePath: "/studio",
-  plugins: [
-    structureTool({
-      structure: (S, context) => {
-        return S.list()
-          .title("Content")
-          .items([
-            // Minimum required configuration
-            orderableDocumentListDeskItem({ type: "portfolyo", S, context }),
-            orderableDocumentListDeskItem({ type: "review", S, context }),
-            S.documentTypeListItem("aboutme"),
-            S.documentTypeListItem("service"),
-          ]);
-      },
-    }),
-  ],
+  plugins: [structureTool()],
   schema: {
     types: schemaTypes,
   },
