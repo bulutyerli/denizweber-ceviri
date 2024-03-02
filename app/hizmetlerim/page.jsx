@@ -1,6 +1,7 @@
 import Services from "@/components/Services";
-import { sanityFetch, urlFor } from "@/lib/sanity.client";
+import { sanityFetch } from "@/lib/sanity.client";
 import { serviceQuery } from "@/lib/sanity.query";
+import { urlFor } from "@/lib/imageBuilder";
 
 export const metadata = {
   title: "Deniz Weber Çeviri Hizmetleri",

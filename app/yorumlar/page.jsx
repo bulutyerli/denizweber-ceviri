@@ -1,6 +1,7 @@
 import ReviewCard from "@/components/ReviewCard";
-import { sanityFetch, urlFor } from "@/lib/sanity.client";
+import { sanityFetch } from "@/lib/sanity.client";
 import { reviewsQuery } from "@/lib/sanity.query";
+import { urlFor } from "@/lib/imageBuilder";
 
 export const metadata = {
   title: "Deniz Weber Çeviri: Yazar Yorumları",

@@ -1,6 +1,7 @@
-import { sanityFetch, urlFor } from "@/lib/sanity.client";
+import { sanityFetch } from "@/lib/sanity.client";
 import PortfolioCard from "@/components/PortfolioCard";
 import { portfolioQuery } from "@/lib/sanity.query";
+import { urlFor } from "@/lib/imageBuilder";
 
 export const metadata = {
   title: "Deniz Weber İngilizce - Türkçe Kitap, Edebi Çeviri Portfolyo",
