@@ -12,7 +12,7 @@ export const metadata = {
 export default async function PortfolyoPage() {
   const portfolio = await sanityFetch({
     query: portfolioQuery,
-    tags: "portfolyo",
+    tags: ["portfolyo"],
   });
 
   return (

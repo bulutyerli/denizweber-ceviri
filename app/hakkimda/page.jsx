@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 export default async function HakkimdaPage() {
-  const data = await sanityFetch({ query: aboutMeQuery, tags: "aboutme" });
+  const data = await sanityFetch({ query: aboutMeQuery, tags: ["aboutme"] });
 
   const image = urlFor(data.image).width(600).height(700).url();
 

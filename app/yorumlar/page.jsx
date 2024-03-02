@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default async function YorumlarPage() {
-  const reviews = await sanityFetch({ query: reviewsQuery, tags: "review" });
+  const reviews = await sanityFetch({ query: reviewsQuery, tags: ["review"] });
 
   return (
     <div>

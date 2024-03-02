@@ -10,7 +10,10 @@ export const metadata = {
 };
 
 export default async function HizmetlerimPage() {
-  const services = await sanityFetch({ query: serviceQuery, tags: "service" });
+  const services = await sanityFetch({
+    query: serviceQuery,
+    tags: ["service"],
+  });
 
   return (
     <div className="mt-20 flex-grow">
