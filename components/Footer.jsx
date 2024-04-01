@@ -18,7 +18,7 @@ const navigation = [
   },
   {
     name: "Gmail",
-    href: "mailTo:bilgi@denizweber.com",
+    href: "mailTo:weber.dnz@gmail.com",
     icon: <BiLogoGmail size={32} />,
   },
 ];
