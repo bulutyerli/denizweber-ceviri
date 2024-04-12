@@ -28,7 +28,7 @@ export default function Homepage() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              Profesyonel Cevirinin Doğru Adresi
+              Profesyonel Çevirinin Doğru Adresi
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-200 px-5 xl:px-0">
               Merhaba, ben Deniz Weber, alanında uzmanlaşmış bir çevirmenim ve
