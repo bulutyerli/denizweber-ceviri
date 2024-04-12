@@ -28,17 +28,13 @@ export default function Homepage() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              Deniz Weber
+              Profesyonel Cevirinin Doğru Adresi
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-200 px-5 xl:px-0">
-              Merhaba! Edebiyatin büyülü dünyasından başlayarak, akademik ve
-              bilimsel metinlere kadar geniş bir yelpazede çeviri hizmetleri
-              sunuyorum. Orijinal ifadeyi koruyarak, dilin güzelliklerini ve
-              anlamını zenginleştirmeyi hedefliyorum. Her bir çeviriyi
-              dikkatlice kontrol ediyor, edebi dili, akademik titizliği ve
-              bilimsel doğruluğu garanti altına alıyorum. Sizinle birlikte dilin
-              sınırlarını aşmayı ve bilgiyi küresel bir ölçekte paylaşmayı dört
-              gözle bekliyorum.
+            <p className="mt-6 text-xl leading-8 text-gray-200 px-5 xl:px-0">
+              Merhaba, ben Deniz Weber, alanında uzmanlaşmış bir çevirmenim ve
+              size en iyi hizmeti sunmak için buradayım. Profesyonel, yaratıcı
+              ve kaliteli çeviriler için doğru adrestesiniz. Sizinle çalışmayı
+              ve eserlerinizi dünya çapında tanıtmayı sabırsızlıkla bekliyorum!
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
