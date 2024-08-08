@@ -1,5 +1,5 @@
-import React from "react";
-import { InView } from "react-intersection-observer";
+import React from 'react';
+import { InView } from 'react-intersection-observer';
 
 export default function AnimationOnScroll({
   children,
@@ -7,7 +7,7 @@ export default function AnimationOnScroll({
   classNameNotInView,
 }) {
   return (
-    <InView triggerOnce threshold={0.5}>
+    <InView triggerOnce threshold={0.4}>
       {({ inView, ref }) => (
         <div
           ref={ref}

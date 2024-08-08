@@ -1,19 +1,31 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import AnimationOnScroll from "./AnimationOnScroll";
+import Image from 'next/image';
+import AnimationOnScroll from './AnimationOnScroll';
 
-export default function ReviewCard({ reviews, image }) {
+export default function ReviewCard({ reviews, image, even }) {
   const { review, title, name } = reviews;
   return (
     <AnimationOnScroll
-      classNameInView={"animate-in fade-in delay-150 duration-300"}
-      classNameNotInView={"opacity-0"}
+      classNameInView={'animate-in fade-in delay-150 duration-300'}
+      classNameNotInView={'opacity-0'}
     >
       <section className="isolate overflow-hidden bg-white px-6 lg:px-8">
         <div className="relative mx-auto max-w-2xl py-24 sm:py-32 lg:max-w-6xl">
-          <div className="absolute left-1/2 top-0 -z-10 h-[50rem] w-[90rem] -translate-x-1/2 bg-[radial-gradient(50%_100%_at_top,theme(colors.primary),white)] opacity-20 lg:left-36" />
-          <div className="absolute inset-y-0 right-1/2 -z-10 mr-12 w-[150vw] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-primary_light/10 ring-1 ring-primary_light sm:mr-20 md:mr-0 lg:right-full lg:-mr-36 lg:origin-center" />
+          <div
+            className={`absolute ${
+              even ? '-left-30' : 'right-0'
+            } top-20 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-12 xl:ml-2`}
+            aria-hidden="true"
+          >
+            <div
+              className="aspect-[400/300] w-[30rem] bg-gradient-to-tr from-primary_light to-primary_dark opacity-70"
+              style={{
+                clipPath:
+                  'polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)',
+              }}
+            />
+          </div>
           <figure className="grid grid-cols-1 items-center gap-x-6 gap-y-8 lg:gap-x-10">
             <div className="relative col-span-2 lg:col-start-1 lg:row-start-2">
               <svg
@@ -28,13 +40,13 @@ export default function ReviewCard({ reviews, image }) {
                 />
                 <use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x={86} />
               </svg>
-              <blockquote className="text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+              <blockquote className="text-lg font-semibold  text-gray-700 sm:text-xl">
                 <p>{review}</p>
               </blockquote>
             </div>
             <div className="col-end-1 w-16 lg:row-span-4 lg:w-72">
               <Image
-                className="rounded-xl bg-indigo-50 lg:rounded-3xl"
+                className="rounded-xl bg-indigo-50 lg:rounded-3xl shadow-gray-900 shadow-md "
                 src={image}
                 alt={`${name} fotoğrafı`}
                 width={600}
