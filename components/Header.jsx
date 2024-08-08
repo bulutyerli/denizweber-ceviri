@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navigation = [
-  { name: "Hakkımda", href: "hakkimda" },
-  { name: "Hizmetlerim", href: "hizmetlerim" },
-  { name: "Portfolyo", href: "portfolyo" },
-  { name: "Yorumlar", href: "yorumlar" },
-  { name: "Bana Ulaşın", href: "bana-ulasin" },
+  { name: 'Hakkımda', href: 'hakkimda' },
+  { name: 'Hizmetlerim', href: 'hizmetlerim' },
+  { name: 'Portfolyo', href: 'portfolyo' },
+  { name: 'Yorumlar', href: 'yorumlar' },
+  { name: 'Bana Ulaşın', href: 'bana-ulasin' },
 ];
 
 export default function Header() {
@@ -21,7 +21,7 @@ export default function Header() {
   const [isHomePage, setIsHomePage] = useState(true);
 
   useEffect(() => {
-    if (pathName === "/") {
+    if (pathName === '/') {
       setIsHomePage(true);
     } else {
       setIsHomePage(false);
@@ -31,18 +31,18 @@ export default function Header() {
   return (
     <header
       className={`inset-x-0 top-0 z-50 ${
-        !isHomePage ? "block bg-primary" : "absolute"
+        !isHomePage ? 'block bg-primary' : 'absolute'
       }`}
     >
       <nav
-        className="flex items-center justify-between p-6 lg:px-8"
+        className="flex items-center justify-between p-6 lg:px-8  max-w-[1440px] mx-auto"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <Link href="/">
             <Image
               className="h-12 w-auto -m-1.5 p-1.5 cursor-pointer"
-              src={isHomePage ? "/logo.png" : "/logoblack.png"}
+              src={isHomePage ? '/logo.png' : '/logoblack.png'}
               alt="deniz weber çeviri website logo"
               width={400}
               height={400}
@@ -58,7 +58,7 @@ export default function Header() {
             <span className="sr-only">Open main menu</span>
             <Bars3Icon
               className={`h-6 w-6 ${
-                isHomePage ? "text-gray-200" : "text-gray-800"
+                isHomePage ? 'text-gray-200' : 'text-gray-800'
               }`}
               aria-hidden="true"
             />
@@ -70,7 +70,7 @@ export default function Header() {
               key={item.name}
               href={item.href}
               className={`text-sm font-semibold leading-6 ${
-                isHomePage ? "text-white" : "text-gray-900"
+                isHomePage ? 'text-white' : 'text-gray-900'
               } cursor-pointer`}
             >
               {item.name}

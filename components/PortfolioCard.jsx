@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { BiSolidQuoteAltLeft } from "react-icons/bi";
-import AnimationOnScroll from "./AnimationOnScroll";
+import Image from 'next/image';
+import { BiSolidQuoteAltLeft } from 'react-icons/bi';
+import AnimationOnScroll from './AnimationOnScroll';
 
 export default function PortfolioCard({ portfolio, image }) {
   const { writer, book, quote } = portfolio;
   return (
     <AnimationOnScroll
-      classNameInView={"animate-in fade-in delay-150 duration-300"}
-      classNameNotInView={"opacity-0"}
+      classNameInView={'animate-in fade-in delay-150 duration-300'}
+      classNameNotInView={'opacity-0'}
     >
       <section className="bg-white pb-16 pt-24 sm:pb-24 sm:pt-32 xl:pb-32">
-        <div className="bg-primary pb-20 sm:pb-24 xl:pb-0">
+        <div className="bg-primary pb-20 sm:pb-24 xl:pb-0 rounded-xl shadow-gray-400 shadow-md">
           <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
             <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
               <div className="relative aspect-[2/3] h-60 md:-mx-8 xl:h-96 xl:mx-0">

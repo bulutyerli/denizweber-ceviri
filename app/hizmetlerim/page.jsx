@@ -1,23 +1,23 @@
-import Services from "@/components/Services";
-import { sanityFetch } from "@/lib/sanity.client";
-import { serviceQuery } from "@/lib/sanity.query";
-import { urlFor } from "@/lib/imageBuilder";
+import Services from '@/components/Services';
+import { sanityFetch } from '@/lib/sanity.client';
+import { serviceQuery } from '@/lib/sanity.query';
+import { urlFor } from '@/lib/imageBuilder';
 
 export const metadata = {
-  title: "Deniz Weber Çeviri Hizmetleri",
+  title: 'Deniz Weber Çeviri Hizmetleri',
   description:
-    "İngilizce - Türkçe kitap çevirisi, edebi çeviri ve çeviri kontrol hizmetleri verilir. Yazarın orijinal ifadesi korunarak eser çevirisi gerçekleştirilir.",
+    'İngilizce - Türkçe kitap çevirisi, edebi çeviri ve çeviri kontrol hizmetleri verilir. Yazarın orijinal ifadesi korunarak eser çevirisi gerçekleştirilir.',
 };
 
 export default async function HizmetlerimPage() {
   const services = await sanityFetch({
     query: serviceQuery,
-    tags: ["service"],
+    tags: ['service'],
   });
 
   return (
     <div className="mt-20 flex-grow">
-      <div className="relative max-w-4xl mx-auto mb-40">
+      <div className="relative max-w-6xl mx-auto mb-40">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-gray-300" />
         </div>
