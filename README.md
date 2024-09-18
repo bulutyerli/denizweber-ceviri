@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="public/homepage.png" alt="Deniz Weber Website" style="max-width: 500px; height: auto;">
 
-## Getting Started
+## About the Website
 
-First, run the development server:
+I created this website for **Deniz Weber**, a professional book translator. The project aimed to build a sleek and user-friendly online portfolio to showcase her work and facilitate client interactions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Project Goals
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Showcase Portfolio**: Display Deniz Weber’s translation projects and expertise.
+- **Client Interaction**: Provide an easy way for potential clients to contact her.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Professional Portfolio**: Showcases various translation projects.
+- **Testimonials Section**: Displays testimonials from authors whose books she has translated.
+- **Contact Form**: Allows potential clients to reach out directly through the website.
+- **About Section**: Features an image and a personal introduction from Deniz Weber.
+- **Responsive Layout**: Optimized for both desktop and mobile views.
 
-## Learn More
+### Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**
+- **Tailwind CSS**
+- **Sanity.io**: Implemented as the CMS for managing and updating website content.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can see the live website at: [https://www.denizweber.com](https://www.denizweber.com)
