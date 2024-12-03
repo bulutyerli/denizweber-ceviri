@@ -1,15 +1,15 @@
-"use client";
-import { useForm } from "react-hook-form";
-import CustomButton from "@/components/Button";
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import ReCAPTCHA from "react-google-recaptcha";
-import AnimationOnScroll from "@/components/AnimationOnScroll";
+'use client';
+import { useForm } from 'react-hook-form';
+import CustomButton from '@/components/Button';
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
+import AnimationOnScroll from '@/components/AnimationOnScroll';
 
 export const metadata = {
-  title: "Deniz Weber Çeviri Hizmetleri İletişim Formu",
+  title: 'Deniz Weber Çeviri Hizmetleri İletişim Formu',
   description:
-    "İngilizce - Türkçe kitap çevirisi, edebi çeviri ve kontrol alanında hizmet almak için bana iletişim formu, email ya da instagram ile ulaşabilirsiniz.",
+    'İngilizce - Türkçe kitap çevirisi, edebi çeviri ve kontrol alanında hizmet almak için bana iletişim formu, email ya da instagram ile ulaşabilirsiniz.',
 };
 
 export default function Form() {
@@ -36,13 +36,13 @@ export default function Form() {
       setError(false);
       setIsLoading(true);
       const token = captchaRef.current.getValue();
-      const name = data.ad + " " + data.soyad;
+      const name = data.ad + ' ' + data.soyad;
       const templateParams = {
         from_name: name,
-        to_name: "Deniz Weber",
+        to_name: 'Deniz Weber',
         reply_to: data.eposta,
         message: data.mesaj,
-        "g-recaptcha-response": token,
+        'g-recaptcha-response': token,
       };
 
       emailjs
@@ -69,8 +69,8 @@ export default function Form() {
 
   return (
     <AnimationOnScroll
-      classNameInView={"animate-in fade-in delay-150 duration-300"}
-      classNameNotInView={"opacity-0"}
+      classNameInView={'animate-in fade-in delay-150 duration-300'}
+      classNameNotInView={'opacity-0'}
     >
       <form
         noValidate
@@ -87,15 +87,15 @@ export default function Form() {
             </label>
             <div className="mt-2.5">
               <input
-                {...register("ad", { required: true, maxLength: 50 })}
-                aria-invalid={errors.ad ? "true" : "false"}
+                {...register('ad', { required: true, maxLength: 50 })}
+                aria-invalid={errors.ad ? 'true' : 'false'}
                 type="text"
                 name="ad"
                 id="ad"
                 autoComplete="ad"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
               />
-              {errors.ad?.type === "required" && (
+              {errors.ad?.type === 'required' && (
                 <p className="text-red-600 text-xs py-1" role="alert">
                   *Bu alan gereklidir.
                 </p>
@@ -111,15 +111,15 @@ export default function Form() {
             </label>
             <div className="mt-2.5">
               <input
-                {...register("soyad", { required: true, maxLength: 50 })}
-                aria-invalid={errors.soyad ? "true" : "false"}
+                {...register('soyad', { required: true, maxLength: 50 })}
+                aria-invalid={errors.soyad ? 'true' : 'false'}
                 type="text"
                 name="soyad"
                 id="soyad"
                 autoComplete="soyad"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
               />
-              {errors.soyad?.type === "required" && (
+              {errors.soyad?.type === 'required' && (
                 <p className="text-red-600 text-xs py-1" role="alert">
                   *Bu alan gereklidir
                 </p>
@@ -136,26 +136,26 @@ export default function Form() {
             </label>
             <div className="mt-2.5">
               <input
-                {...register("eposta", {
-                  required: "*Bu alan gereklidir",
+                {...register('eposta', {
+                  required: '*Bu alan gereklidir',
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: "*Geçerli bir e-posta adresi giriniz",
+                    message: '*Geçerli bir e-posta adresi giriniz',
                   },
                 })}
-                aria-invalid={errors.eposta ? "true" : "false"}
+                aria-invalid={errors.eposta ? 'true' : 'false'}
                 type="email"
                 name="eposta"
                 id="eposta"
                 autoComplete="eposta"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
               />
-              {errors.eposta?.type === "required" && (
+              {errors.eposta?.type === 'required' && (
                 <p className="text-red-600 text-xs py-1" role="alert">
                   *Bu alan gereklidir
                 </p>
               )}
-              {errors.eposta?.type === "pattern" && (
+              {errors.eposta?.type === 'pattern' && (
                 <p className="text-red-600 text-xs py-1" role="alert">
                   *Geçerli bir e-posta adresi giriniz
                 </p>
@@ -172,15 +172,15 @@ export default function Form() {
             </label>
             <div className="mt-2.5">
               <textarea
-                {...register("mesaj", { required: true, maxLength: 500 })}
-                aria-invalid={errors.mesaj ? "true" : "false"}
+                {...register('mesaj', { required: true, maxLength: 500 })}
+                aria-invalid={errors.mesaj ? 'true' : 'false'}
                 name="mesaj"
                 id="mesaj"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                defaultValue={""}
+                defaultValue={''}
               />
-              {errors.mesaj?.type === "required" && (
+              {errors.mesaj?.type === 'required' && (
                 <p className="text-red-600 text-xs py-1" role="alert">
                   *Bu alan gereklidir
                 </p>
@@ -198,8 +198,8 @@ export default function Form() {
 
         <div className="mt-10">
           <CustomButton
-            text={"Gönder"}
-            type={"submit"}
+            text={'Gönder'}
+            type={'submit'}
             loading={isLoading}
             disabled={!captchaStatus}
           />
@@ -214,7 +214,7 @@ export default function Form() {
             Bir hata oldu, lütfen tekrar deneyin.
           </p>
         ) : (
-          ""
+          ''
         )}
       </form>
     </AnimationOnScroll>
